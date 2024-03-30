@@ -4,8 +4,11 @@ namespace App\Services\Permission\Traits;
 
 use App\Role;
 
+
+//this trait is used in the user model to asign roles to the users
 trait HasRoles
 {
+    //definition the relation between user model and role model
     public function roles()
     {
         return $this->belongsToMany(Role::class);

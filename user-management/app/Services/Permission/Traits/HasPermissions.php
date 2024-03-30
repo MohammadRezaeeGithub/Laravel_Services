@@ -79,6 +79,9 @@ trait HasPermissions
 
     protected function hasPermissionsThroughRole(Permission $permission)
     {
+        //in this function first we check to to which roles this permisstion belongs
+        //then we recieve all the roles of the user 
+        //at the end if there a role or roles in common, it means the user has the permission
         foreach ($permission->roles as $role) {
             if ($this->roles->contains($role)) return true;
         }
