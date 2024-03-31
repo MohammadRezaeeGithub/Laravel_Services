@@ -44,7 +44,11 @@ class PermissionServiceProvider extends ServiceProvider
         });
 
 
+        //to check if the user has a role to show some buttons or something like that 
+        //we create a blade directive to check if the user has this role
+        //in the callback function we pass the name which we pass to the directive in blade file
         Blade::if('role', function ($role) {
+            //here we check if user is logged in and this user has this role
             return auth()->check() && auth()->user()->hasRole($role);
         });
     }
